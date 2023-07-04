@@ -1052,6 +1052,7 @@ button {
 
 .footer-row {
   display: flex;
+  align-items: center;
 }
 
 .footer-cta {

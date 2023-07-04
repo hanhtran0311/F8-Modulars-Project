@@ -90,10 +90,12 @@
     />
     <!-- Style css -->
     <link rel="stylesheet" href="./assets/css/style.css" />
+    <!-- Responsive -->
+    <link rel="stylesheet" href="./assets/css/responsive.css" />
   </head>
   <body>
     <!-- Header -->
-    <header class="header header__fixed">
+    <header class="header">
       <div class="container">
         <!-- Header-top -->
         <div class="header-top">
@@ -109,7 +111,7 @@
 
           <!-- Navbar -->
           <nav class="header-nav">
-            <ul class="header-nav__list">
+            <ul class="header-nav__list" id="pc-nav">
               <li>
                 <a href="#!" class="header-nav__item header-nav__item-active"
                   >Home</a
@@ -118,91 +120,148 @@
               <li><a href="#!" class="header-nav__item">About</a></li>
               <li><a href="#!" class="header-nav__item">Blog</a></li>
               <li><a href="#!" class="header-nav__item">Contact</a></li>
+              <li>
+                <a href="#!" class="show-on-mobile separate header-nav__item">
+                  Sign in
+                </a>
+              </li>
+              <li>
+                <a href="#!" class="show-on-mobile header-nav__item">
+                  Sign up
+                </a>
+              </li>
             </ul>
           </nav>
 
           <!-- Header button -->
           <a href="#!" class="btn header-top__btn"> Sign Up </a>
+
+          <!-- Mobile Menu -->
+          <label for="menu-checkbox" class="header__mobile-menu show-on-mobile">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="1em"
+              viewBox="0 0 448 512"
+            >
+              <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+              <path
+                fill="currentcolor"
+                d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"
+              />
+            </svg>
+          </label>
         </div>
       </div>
     </header>
 
-    <!-- Main -->
-    <main>
-      <!-- Hero -->
-      <section class="hero">
-        <div class="container">
-          <div class="hero__decor-line"></div>
-          <div class="hero-row">
-            <!-- Hero left -->
-            <section class="hero-content">
-              <h1 class="hero__heading">We’re a creative design agency.</h1>
-              <p class="hero__desc">
-                A brilliant, modular agency template for startup’s build yours
-                toady.
-              </p>
-              <div class="hero-cta">
-                <div class="hero-cta__btn btn">Get in touch</div>
-                <button class="hero-cta__watch-video">
-                  <div class="hero-cta__half-border">
-                    <div class="hero-cta__play-icon">
-                      <svg
-                        width="8"
-                        height="10"
-                        viewBox="0 0 8 10"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M7.48979 4.22586C8.15106 4.61996 8.13773 5.58212 7.4658 5.95775L1.49682 9.29454C0.824887 9.67017 -0.00170366 9.17755 0.00896126 8.40782L0.103701 1.57014C0.114366 0.800411 0.954284 0.330874 1.61555 0.724974L7.48979 4.22586Z"
-                          fill="currentcolor"
-                        />
-                      </svg>
-                    </div>
+    <!-- Mobile header -->
+    <div class="mobile-header">
+      <!-- Input checkbox -->
+      <input
+        type="checkbox"
+        name=""
+        id="menu-checkbox"
+        class="menu-checkbox"
+        hidden
+      />
+
+      <!-- Menu Overlay -->
+      <label for="menu-checkbox" class="checkbox"></label>
+
+      <!-- Menu content -->
+      <div class="menu-drawer">
+        <!-- Logo -->
+        <a href="#!">
+          <img src="./assets/icon/logo.svg" alt="" class="header__logo-img" />
+        </a>
+        <!-- Navigation -->
+        <ul id="mobile-nav" class="mobile-nav"></ul>
+        <script>
+          const pcNav = document.querySelector("#pc-nav");
+          const mobileNav = document.querySelector("#mobile-nav");
+
+          // Copy form PC nav -> mobile nav
+          mobileNav.innerHTML = pcNav.innerHTML;
+        </script>
+      </div>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero__decor-line"></div>
+        <div class="hero-row">
+          <!-- Hero left -->
+          <section class="hero-content">
+            <h1 class="hero__heading">We’re a creative design agency.</h1>
+            <p class="hero__desc">
+              A brilliant, modular agency template for startup’s build yours
+              toady.
+            </p>
+            <div class="hero-cta">
+              <div class="hero-cta__btn btn">Get in touch</div>
+              <button class="hero-cta__watch-video">
+                <div class="hero-cta__half-border">
+                  <div class="hero-cta__play-icon">
+                    <svg
+                      width="8"
+                      height="10"
+                      viewBox="0 0 8 10"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M7.48979 4.22586C8.15106 4.61996 8.13773 5.58212 7.4658 5.95775L1.49682 9.29454C0.824887 9.67017 -0.00170366 9.17755 0.00896126 8.40782L0.103701 1.57014C0.114366 0.800411 0.954284 0.330874 1.61555 0.724974L7.48979 4.22586Z"
+                        fill="currentcolor"
+                      />
+                    </svg>
                   </div>
-                  Watch Video
-                </button>
-              </div>
-            </section>
-
-            <!-- Hero right -->
-            <section class="hero-media">
-              <figure class="hero-media__image">
-                <img
-                  src="./assets/img/hero1.png"
-                  alt=""
-                  class="hero-media__img"
-                />
-                <img
-                  src="./assets/img/hero2.png"
-                  alt=""
-                  class="hero-media__img"
-                />
-                <img
-                  src="./assets/img/hero3.png"
-                  alt=""
-                  class="hero-media__img"
-                />
-              </figure>
-            </section>
-
-            <!-- Hero decor -->
-            <div class="hero-decor">
-              <img
-                src="./assets/icon/hero-decor.svg"
-                alt=""
-                class="hero-decor__img"
-              />
-              <img
-                src="./assets/icon/hero-decor.svg"
-                alt=""
-                class="hero-decor__img"
-              />
+                </div>
+                Watch Video
+              </button>
             </div>
+          </section>
+
+          <!-- Hero right -->
+          <section class="hero-media">
+            <figure class="hero-media__image">
+              <img
+                src="./assets/img/hero1.png"
+                alt=""
+                class="hero-media__img"
+              />
+              <img
+                src="./assets/img/hero2.png"
+                alt=""
+                class="hero-media__img"
+              />
+              <img
+                src="./assets/img/hero3.png"
+                alt=""
+                class="hero-media__img"
+              />
+            </figure>
+          </section>
+
+          <!-- Hero decor -->
+          <div class="hero-decor">
+            <img
+              src="./assets/icon/hero-decor.svg"
+              alt=""
+              class="hero-decor__img"
+            />
+            <img
+              src="./assets/icon/hero-decor.svg"
+              alt=""
+              class="hero-decor__img"
+            />
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
+    <!-- Main -->
+    <main>
       <!-- Branch -->
       <div class="branch">
         <div class="container">
@@ -263,6 +322,7 @@
       <!-- Service -->
       <section class="service">
         <div class="container">
+          <!-- Service top -->
           <span class="service__title desc-1">OUR SERVICES</span>
           <div class="service-row">
             <h2 class="service__heading heading-lv2">
@@ -370,6 +430,108 @@
               </section>
             </article>
           </div>
+
+          <!-- Mobile service course list  -->
+          <div class="mobile-service show-on-mobile">
+            <!-- Chevron left -->
+            <div class="mobile-service__chevron">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="1em"
+                viewBox="0 0 320 512"
+              >
+                <path
+                  d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"
+                />
+              </svg>
+            </div>
+
+            <!-- Content -->
+            <div class="mobile-service__content">
+              <!-- Item 1 -->
+              <article class="service-courses__item">
+                <a href="#!">
+                  <figure class="service-courses__item-image">
+                    <img
+                      src="./assets/img/service1.jpg"
+                      alt=""
+                      class="service-courses__item-img"
+                    />
+                  </figure>
+                </a>
+                <section class="service-courses__item-body">
+                  <h3 class="service-courses__item-title line-clamp">
+                    Branding
+                  </h3>
+                  <p
+                    class="service-courses__item-desc desc-1 line-clamp line-3"
+                  >
+                    Create beautiful Agency website with value that converts
+                    more visitors than any website.
+                  </p>
+                </section>
+              </article>
+              <!-- Item 2 -->
+              <article class="service-courses__item">
+                <a href="#!">
+                  <figure class="service-courses__item-image">
+                    <img
+                      src="./assets/img/service2.jpg"
+                      alt=""
+                      class="service-courses__item-img"
+                    />
+                  </figure>
+                </a>
+                <section class="service-courses__item-body">
+                  <h3 class="service-courses__item-title line-clamp">
+                    Web Design
+                  </h3>
+                  <p
+                    class="service-courses__item-desc desc-1 line-clamp line-3"
+                  >
+                    Create beautiful Agency website with value that converts
+                    more visitors than any website.
+                  </p>
+                </section>
+              </article>
+              <!-- Item 3 -->
+              <article class="service-courses__item">
+                <a href="#!">
+                  <figure class="service-courses__item-image">
+                    <img
+                      src="./assets/img/service3.jpg"
+                      alt=""
+                      class="service-courses__item-img"
+                    />
+                  </figure>
+                </a>
+                <section class="service-courses__item-body">
+                  <h3 class="service-courses__item-title line-clamp">
+                    Graphic Design
+                  </h3>
+                  <p
+                    class="service-courses__item-desc desc-1 line-clamp line-3"
+                  >
+                    Create beautiful Agency website with Bolue that converts
+                    more visitors than any website.
+                  </p>
+                </section>
+              </article>
+            </div>
+
+            <!-- Chevron right -->
+            <div class="mobile-service__chevron">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="1em"
+                viewBox="0 0 320 512"
+              >
+                <path
+                  d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"
+                />
+              </svg>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -451,7 +613,7 @@
               </p>
 
               <!-- Stats -->
-              <div class="info-content__stats">
+              <div class="info-content__stats" hidden>
                 <div class="info-content__stats-number">48%</div>
                 <p class="info-content__stats-desc desc-1">
                   Are you strive for two things in design simplicity and
@@ -477,6 +639,7 @@
           <h2 class="process__heading heading-lv2">
             A simple ,yet effective three step process
           </h2>
+          <!-- PC -->
           <div class="process-row">
             <img
               src="./assets/img/process-man.png"
@@ -516,6 +679,44 @@
                 defiverables experience tells us the best solutions are the ones
                 deated with clients.
               </p>
+            </section>
+          </div>
+
+          <!-- Mobile -->
+          <div class="mobile__process-row show-on-mobile">
+            <!-- Process row item 1 -->
+            <section class="mobile-process-item">
+              <span class="process-item__number">01.</span>
+              <div class="process-item__content">
+                <h3 class="process-item__content-title">Project idea</h3>
+                <a href="#!" class="process-item__learn-more">Learn More</a>
+              </div>
+            </section>
+            <!-- Process row item 2 -->
+            <section class="mobile-process-item">
+              <div class="process-item-wrap">
+                <span class="process-item__number">02.</span>
+                <h3 class="process-item__content-title">Brainstormaing</h3>
+              </div>
+              <p class="process-item__content-desc desc-2">
+                We customse a ensure aligment and difine key mileones and
+                defiverables experience tells us the best solutions are the ones
+                deated with clients.
+              </p>
+              <a href="#!" class="process-item__learn-more">Learn More</a>
+            </section>
+            <!-- Process row item 3 -->
+            <section class="mobile-process-item">
+              <div class="process-item-wrap">
+                <span class="process-item__number">03.</span>
+                <h3 class="process-item__content-title">Execution</h3>
+              </div>
+              <p class="process-item__content-desc desc-2">
+                We customse a ensure aligment and difine key mileones and
+                defiverables experience tells us the best solutions are the ones
+                deated with clients.
+              </p>
+              <a href="#!" class="process-item__learn-more">Learn More</a>
             </section>
           </div>
         </div>
@@ -776,6 +977,23 @@
                   />
                 </svg>
               </a>
+              <!-- Mobile Menu -->
+              <label
+                for="menu-checkbox"
+                class="header__mobile-menu show-on-mobile footer__menu-checkbox"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="1em"
+                  viewBox="0 0 448 512"
+                >
+                  <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                  <path
+                    fill="#fff"
+                    d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"
+                  />
+                </svg>
+              </label>
             </div>
           </section>
 
